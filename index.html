@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Spotlight Effect on Grid</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1 id="section-heading">Spotlight on Featured Products</h1>
+      <section class="grid-container" aria-labelledby="section-heading">
+        <div class="grid-items">
+          <article class="grid-item" tabindex="0">
+            <div class="spotlight"></div>
+            <div class="content">
+              <h2>Product 1</h2>
+              <p>Explore this amazing feature.</p>
+              <button aria-label="Learn more about Product 1">
+                Learn More
+              </button>
+            </div>
+          </article>
+
+          <article class="grid-item" tabindex="0">
+            <div class="spotlight"></div>
+            <div class="content">
+              <h2>Product 2</h2>
+              <p>Highlighting with style.</p>
+              <button aria-label="Learn more about Product 2">
+                Learn More
+              </button>
+            </div>
+          </article>
+
+          <article class="grid-item" tabindex="0">
+            <div class="spotlight"></div>
+            <div class="content">
+              <h2>Product 3</h2>
+              <p>Catch your attention now.</p>
+              <button aria-label="Learn more about Product 3">
+                Learn More
+              </button>
+            </div>
+          </article>
+
+          <article class="grid-item" tabindex="0">
+            <div class="spotlight"></div>
+            <div class="content">
+              <h2>Product 4</h2>
+              <p>Elegantly focused.</p>
+              <button aria-label="Learn more about Product 4">
+                Learn More
+              </button>
+            </div>
+          </article>
+
+          <article class="grid-item" tabindex="0">
+            <div class="spotlight"></div>
+            <div class="content">
+              <h2>Product 5</h2>
+              <p>Spotlight on the best features.</p>
+              <button aria-label="Learn more about Product 5">
+                Learn More
+              </button>
+            </div>
+          </article>
+
+          <article class="grid-item" tabindex="0">
+            <div class="spotlight"></div>
+            <div class="content">
+              <h2>Product 6</h2>
+              <p>Explore what matters most.</p>
+              <button aria-label="Learn more about Product 6">
+                Learn More
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="index.js"></script>
+    <!-- Link to the JavaScript file -->
+  </body>
+</html>
