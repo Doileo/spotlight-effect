@@ -68,8 +68,8 @@ h1 {
 
 .spotlight {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 0; /* Start hidden */
+  height: 0; /* Start hidden */
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -79,7 +79,7 @@ h1 {
   pointer-events: none;
   filter: blur(25px);
   z-index: 0;
-  transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
 }
 
 .grid-item:hover .spotlight,

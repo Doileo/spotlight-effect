@@ -9,9 +9,25 @@ function updateSpotlight(e) {
   const x = e.clientX;
   const y = e.clientY;
 
-  spotlights.forEach((spotlight) => {
-    spotlight.style.left = `${x - 50}px`; // Center the spotlight
-    spotlight.style.top = `${y - 50}px`; // Center the spotlight
+  gridItems.forEach((item) => {
+    const spotlight = item.querySelector(".spotlight");
+    const rect = item.getBoundingClientRect();
+
+    // Check if the mouse is within the grid item
+    if (
+      x >= rect.left &&
+      x <= rect.right &&
+      y >= rect.top &&
+      y <= rect.bottom
+    ) {
+      spotlight.style.left = `${x - rect.left - 50}px`; // Center the spotlight
+      spotlight.style.top = `${y - rect.top - 50}px`; // Center the spotlight
+      spotlight.style.width = "220px";
+      spotlight.style.height = "220px";
+    } else {
+      spotlight.style.width = "0"; // Hide spotlight when not hovered
+      spotlight.style.height = "0";
+    }
   });
 }
 
@@ -22,9 +38,13 @@ document.addEventListener("mousemove", updateSpotlight);
 gridItems.forEach((item) => {
   item.addEventListener("focus", () => {
     item.classList.add("focused");
+    item.querySelector(".spotlight").style.width = "220px"; // Show spotlight on focus
+    item.querySelector(".spotlight").style.height = "220px";
   });
 
   item.addEventListener("blur", () => {
     item.classList.remove("focused");
+    item.querySelector(".spotlight").style.width = "0"; // Hide spotlight on blur
+    item.querySelector(".spotlight").style.height = "0";
   });
 });
