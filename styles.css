@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -9,15 +10,34 @@ body {
   background-color: #f0f4f8;
   line-height: 1.6;
   color: #333;
-  margin: 0;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height to push footer down */
 }
 
+main {
+  flex: 1;
+}
+
+/* Typography */
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Grid Layout */
 .grid-container {
   display: flex;
   justify-content: center;
@@ -33,18 +53,7 @@ h1 {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .grid-items {
-    grid-template-columns: repeat(2, 1fr); /* Tablet layout: 2 columns */
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-items {
-    grid-template-columns: repeat(3, 1fr); /* Desktop layout: 3 columns */
-  }
-}
-
+/* Grid Item Styles */
 .grid-item {
   position: relative;
   padding: 20px;
@@ -66,6 +75,7 @@ h1 {
   outline: 3px solid #007bff;
 }
 
+/* Spotlight Effect */
 .spotlight {
   position: absolute;
   width: 0; /* Start hidden */
@@ -93,17 +103,7 @@ h1 {
   z-index: 1;
 }
 
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-p {
-  color: #666;
-  margin-bottom: 15px;
-}
-
+/* Button Styles */
 button {
   padding: 10px 20px;
   border: none;
@@ -122,4 +122,110 @@ button:hover {
 
 button:focus {
   outline: 2px solid #0056b3;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #c8e4fa;
+  color: #3f3f3f;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.footer-message {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  font-family: "Comic Sans MS", cursive;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s forwards;
+}
+
+/* Footer Animation Delays */
+.footer-message:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.footer-message:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.footer-message:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .footer {
+    padding: 8px;
+  }
+
+  .footer-message {
+    font-size: 1rem;
+  }
+
+  .footer-message:nth-child(1),
+  .footer-message:nth-child(2),
+  .footer-message:nth-child(3) {
+    opacity: 1; /* Ensure messages are visible */
+    animation: slideIn 0.5s forwards; /* Trigger animation for smaller screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    padding: 15px 0;
+  }
+
+  .footer-message {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer {
+    padding: 20px 0;
+  }
+
+  .footer-message {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
