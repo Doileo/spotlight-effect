@@ -60,7 +60,7 @@ Here are some screenshots to illustrate the project:
 
 - **Spotlight Effect**: I created a spotlight effect on items in a grid layout using CSS. This effect dims the background while highlighting the item under the cursor.
 
-- **JavaScript Functionality**: I used JavaScript to make the spotlight effect interactive. When the user hovers over an item, the spotlight adjusts in real-time to keep the focus on that item.
+- **JavaScript Functionality**: I utilized JavaScript to make the spotlight effect interactive. When the user hovers over an item, the spotlight adjusts in real-time to maintain focus on that item.
 
 - **Accessibility Features**: I ensured the spotlight effect is accessible. Users can navigate using the keyboard, and the effect does not hinder screen reader functionality.
 

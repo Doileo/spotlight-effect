@@ -2,7 +2,6 @@
 
 // Select all grid items and the spotlight element
 const gridItems = document.querySelectorAll(".grid-item");
-const spotlights = document.querySelectorAll(".spotlight");
 
 // Function to position the spotlight based on mouse movement
 function updateSpotlight(e) {
@@ -14,37 +13,43 @@ function updateSpotlight(e) {
     const rect = item.getBoundingClientRect();
 
     // Check if the mouse is within the grid item
-    if (
-      x >= rect.left &&
-      x <= rect.right &&
-      y >= rect.top &&
-      y <= rect.bottom
-    ) {
-      spotlight.style.left = `${x - rect.left - 50}px`; // Center the spotlight
-      spotlight.style.top = `${y - rect.top - 50}px`; // Center the spotlight
-      spotlight.style.width = "220px";
-      spotlight.style.height = "220px";
+    const isHovered =
+      x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+
+    // Set styles based on whether the item is hovered
+    if (isHovered) {
+      spotlight.style.left = `${x - rect.left - 50}px`; // Center spotlight
+      spotlight.style.top = `${y - rect.top - 50}px`; // Center spotlight
+      spotlight.classList.add("visible"); // Show spotlight
     } else {
-      spotlight.style.width = "0"; // Hide spotlight when not hovered
-      spotlight.style.height = "0";
+      spotlight.classList.remove("visible"); // Hide spotlight
     }
   });
 }
 
-// Add mouse move event listener to the document
-document.addEventListener("mousemove", updateSpotlight);
+// Debounce function to limit how often updateSpotlight is called
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+// Add mouse move event listener to the document with debounce
+document.addEventListener("mousemove", debounce(updateSpotlight, 20));
 
 // Accessibility: ensure focus is indicated for each grid item
 gridItems.forEach((item) => {
   item.addEventListener("focus", () => {
     item.classList.add("focused");
-    item.querySelector(".spotlight").style.width = "220px"; // Show spotlight on focus
-    item.querySelector(".spotlight").style.height = "220px";
+    const spotlight = item.querySelector(".spotlight");
+    spotlight.classList.add("visible"); // Show spotlight on focus
   });
 
   item.addEventListener("blur", () => {
     item.classList.remove("focused");
-    item.querySelector(".spotlight").style.width = "0"; // Hide spotlight on blur
-    item.querySelector(".spotlight").style.height = "0";
+    const spotlight = item.querySelector(".spotlight");
+    spotlight.classList.remove("visible"); // Hide spotlight on blur
   });
 });
