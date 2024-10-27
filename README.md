@@ -9,6 +9,7 @@ A personal project where I explored how to implement a spotlight effect on a gri
   - [Overview](#overview)
   - [Key Features](#key-features)
   - [Screenshots](#screenshots)
+  - [Video Demonstration](#video-demonstration)
     - [Links](#links)
   - [My process](#my-process)
     - [Built with](#built-with)
@@ -41,6 +42,12 @@ Here are some screenshots to illustrate the project:
 | **Mobile**  | Default | ![Mobile View](images/default-mobile-screenshot.png "Mobile view of the spotlight effect")     |
 | **Tablet**  | Hover   | ![Tablet Hover View](images/tablet-hover-screenshot.png "Tablet view of the spotlight effect") |
 | **Desktop** | Select  | ![Desktop Select View](images/desktop-select-item.png "Desktop view of the spotlight effect")  |
+
+## Video Demonstration
+
+Here’s a short demonstration of the footer text effect in my project:
+
+[Watch the video demonstration](images/video-demo.mp4)
 
 ### Links
 
